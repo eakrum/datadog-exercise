@@ -166,3 +166,13 @@ helm install test-agent test-agent
 ```
 
 Congratulations, the whole stack is now launched, provisioned via code, and monitored in DataDog!
+
+## Improvements
+
+Althought I attempted to make an as production ready solution as possible with the terraform code, docker, privatization of resources etc there is still room for improvement here. A few things that need to be done here are
+1. multiple environments
+2. DNS functionality instead of apps pointing to ELB's
+3. CI/CD to launch infrastructure, build and deploy apps
+4. VPN Solution to lock down the k8s API
+
+Given the timing I decided to forego these nice to have features and instead provide a general display on my logic as well as how I can possibly build and deploy infrastructure/ applications to help the team progress and be as agile as possible.
