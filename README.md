@@ -17,9 +17,10 @@ Lastly to bring the whole piece of the puzzle together I incorporate the AWS int
 In order to run this project and follow the launching of this stack we will need to have the following tools installed on our machines. For reference I will also attach my version. 
 1. Docker. Docker version 20.10.8, build 3967b7d
 2. Terraform - 0.15.0
-3. Python3 - 3.8.3 (local testing off apps only)
-4. Node.JS - 14.13.1 (local testing of apps only)
-5. AWS CLI - 2.2.3 
+3. Helm - 3.4.2
+4. Python3 - 3.8.3 (local testing off apps only)
+5. Node.JS - 14.13.1 (local testing of apps only)
+6. AWS CLI - 2.2.3 
 
 Furthermore you will need an AWS account to provision these resources with an appropriate `IAM profile` in your `~/.aws/credentials` file. I recommend attaching `AdministratorAccess` to this user only for the sake of testing this. Here is an example of my profile with the secrets redacted. 
 ```
