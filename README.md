@@ -38,7 +38,7 @@ for example: `export AWS_PROFILE=eakrum` and you can verify by running `aws s3 l
 Now that we have our development environment ready we are now ready to launch infrastructure! Before we begin - let's walk through the code. We have 3 main folders here. 
 - AWS
   - Holds foundational pieces for terraform i.e s3 state bucket creation and dynamo db table related code
-  - Holds a subfolder called `us-east-` this is where all of our config files and directives lie for the `us-east-1` region.
+  - Holds a subfolder called `us-east-1` this is where all of our config files and directives lie for the `us-east-1` region.
 - Modules
   - We can think of this folder as `classes`. Each module specifies how to launch a specific piece of infrastructure. 
 - Scripts
