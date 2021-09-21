@@ -1,0 +1,19 @@
+environment             = "development"
+region                  = "us-east-1"
+identifier              = "development-datadog-postgres"
+engine                  = "postgres"
+engine_version          = "12.5"
+family                  = "postgres12"
+major_engine_version    = "12"
+instance_class          = "db.t3.small"
+allocated_storage       = 20 # GiB
+max_allocated_storage   = 100
+database_name           = "datadog"
+username                = "eakrum"
+deletion_protection     = false
+backup_retention_period = 7
+create_monitoring_role  = true
+snapshot_identifier     = null
+tags = {
+  Terraform = true
+}
