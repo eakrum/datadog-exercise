@@ -1,5 +1,11 @@
 # DataDog Devops Exercise
 
+For reference:
+ToDo API endpoint: http://a86077dfc452f4d098c2575164c029c2-1805245106.us-east-1.elb.amazonaws.com/api/gettodos - note: all routes begin with /api outside of healthchecker
+
+FrontEnd endpoint: http://a0da6248086324e35bddf5571cc2309f-28687661.us-east-1.elb.amazonaws.com/
+
+
 ### Opening Remarks
 I've very much enjoyed working on this exercise and hope I can demonstrate my abilities as a DevOps Engineer for DataDog and the Demo Environment team. As discussed in the prompt, the assignment was to demonstrate DataDog's capabilities across a working application with the possibility of using different technologies throughout the frontend, backend, and any other parts of the stack. Although the prompt said we can use minikube or any other k8s-aaS platform I've decided to leverage my skillset as a DevOps engineer and demonstrate a relatively production ready solution with what was offered given the time constraint.
 
