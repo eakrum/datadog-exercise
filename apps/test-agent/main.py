@@ -14,7 +14,7 @@ def run_agent():
         res = requests.post(api_endpoint + '/api/addTodo', data=data)
         res2 = requests.get(api_endpoint + '/api/getTodos')
         print(res2.json())
-        time.sleep(1)
+        time.sleep(20)
 
 
 if __name__ == '__main__':
