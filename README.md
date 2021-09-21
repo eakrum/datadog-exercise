@@ -88,7 +88,7 @@ Once this is completed cd into the `helm` directory of this repository. The run 
 
 The datadog agent is now deployed onto the cluster!
 
-Next we can enable the AWS integration through DataDog which launches a few cloudformation stacks as well so we can start monitoring our non EKS workloads and other metadata. The instructions for doing so can be found [here](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=roledelegation
+Next we can enable the AWS integration through DataDog which launches a few cloudformation stacks as well so we can start monitoring our non EKS workloads and other metadata. The instructions for doing so can be found [here](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=roledelegation)
 
 ### Dockerizing and Deploying API
 
