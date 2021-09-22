@@ -1,5 +1,11 @@
 # DataDog Devops Exercise
 
+For reference:
+ToDo API endpoint: http://a86077dfc452f4d098c2575164c029c2-1805245106.us-east-1.elb.amazonaws.com/api/gettodos - note: all routes begin with /api outside of healthchecker
+
+FrontEnd endpoint: http://a0da6248086324e35bddf5571cc2309f-28687661.us-east-1.elb.amazonaws.com/
+
+
 ### Opening Remarks
 I've very much enjoyed working on this exercise and hope I can demonstrate my abilities as a DevOps Engineer for DataDog and the Demo Environment team. As discussed in the prompt, the assignment was to demonstrate DataDog's capabilities across a working application with the possibility of using different technologies throughout the frontend, backend, and any other parts of the stack. Although the prompt said we can use minikube or any other k8s-aaS platform I've decided to leverage my skillset as a DevOps engineer and demonstrate a relatively production ready solution with what was offered given the time constraint.
 
@@ -17,9 +23,10 @@ Lastly to bring the whole piece of the puzzle together I incorporate the AWS int
 In order to run this project and follow the launching of this stack we will need to have the following tools installed on our machines. For reference I will also attach my version. 
 1. Docker. Docker version 20.10.8, build 3967b7d
 2. Terraform - 0.15.0
-3. Python3 - 3.8.3 (local testing off apps only)
-4. Node.JS - 14.13.1 (local testing of apps only)
-5. AWS CLI - 2.2.3 
+3. Helm - 3.4.2
+4. Python3 - 3.8.3 (local testing off apps only)
+5. Node.JS - 14.13.1 (local testing of apps only)
+6. AWS CLI - 2.2.3 
 
 Furthermore you will need an AWS account to provision these resources with an appropriate `IAM profile` in your `~/.aws/credentials` file. I recommend attaching `AdministratorAccess` to this user only for the sake of testing this. Here is an example of my profile with the secrets redacted. 
 ```
@@ -37,7 +44,7 @@ for example: `export AWS_PROFILE=eakrum` and you can verify by running `aws s3 l
 Now that we have our development environment ready we are now ready to launch infrastructure! Before we begin - let's walk through the code. We have 3 main folders here. 
 - AWS
   - Holds foundational pieces for terraform i.e s3 state bucket creation and dynamo db table related code
-  - Holds a subfolder called `us-east-` this is where all of our config files and directives lie for the `us-east-1` region.
+  - Holds a subfolder called `us-east-1` this is where all of our config files and directives lie for the `us-east-1` region.
 - Modules
   - We can think of this folder as `classes`. Each module specifies how to launch a specific piece of infrastructure. 
 - Scripts
@@ -88,7 +95,7 @@ Once this is completed cd into the `helm` directory of this repository. The run 
 
 The datadog agent is now deployed onto the cluster!
 
-Next we can enable the AWS integration through DataDog which launches a few cloudformation stacks as well so we can start monitoring our non EKS workloads and other metadata. The instructions for doing so can be found [here](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=roledelegation
+Next we can enable the AWS integration through DataDog which launches a few cloudformation stacks as well so we can start monitoring our non EKS workloads and other metadata. The instructions for doing so can be found [here](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=roledelegation)
 
 ### Dockerizing and Deploying API
 
@@ -166,3 +173,13 @@ helm install test-agent test-agent
 ```
 
 Congratulations, the whole stack is now launched, provisioned via code, and monitored in DataDog!
+
+## Improvements
+
+Althought I attempted to make an as production ready solution as possible with the terraform code, docker, privatization of resources etc there is still room for improvement here. A few things that need to be done here are
+1. multiple environments
+2. DNS functionality instead of apps pointing to ELB's
+3. CI/CD to launch infrastructure, build and deploy apps
+4. VPN Solution to lock down the k8s API
+
+Given the timing I decided to forego these nice to have features and instead provide a general display on my logic as well as how I can possibly build and deploy infrastructure/ applications to help the team progress and be as agile as possible.
