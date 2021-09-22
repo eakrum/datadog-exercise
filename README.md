@@ -101,7 +101,7 @@ Next we can enable the AWS integration through DataDog which launches a few clou
 
 NOTE: Please modify `helm/example-api/values.yaml` to account for your ECR repo! Follows this structure: `<YOUR_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/example-api`  
 
-Because API is required for both of our other applications we are going to be dockerizing and deplpoying this first. From our infrastructure step we must grab our RDS endpoint which can be done from the RDS console, next we must also grab the RDS password which we specified in parameter store. After doing so, cd into `apps/example-api` and then run the following command: 
+Because API is required for both of our other applications we are going to be dockerizing and deploying this first. From our infrastructure step we must grab our RDS endpoint which can be done from the RDS console, next we must also grab the RDS password which we specified in parameter store. After doing so, cd into `apps/example-api` and then run the following command: 
 ```
 docker build -t <YOUR_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/example-api:latest -f Dockerfile --build-arg DB_USERNAME=eakrum --build-arg DB_PASSWORD=<YOUR_PASSWORD> --build-arg DB_HOST=<YOUR_HOST> .
 ```
