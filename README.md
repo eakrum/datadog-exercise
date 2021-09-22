@@ -66,7 +66,7 @@ Our AWS environment will consist of the basic barebones resources we need to lau
 
 #### Launching the RDS Instance
 
-NOTE: adjust s3 bucket name in `us-east-1/environment/backend.tf` with value of your bucket.
+NOTE: adjust s3 bucket name in `us-east-1/rds/backend.tf` with value of your bucket.
 
 Before we begin - we have a manual step here where we have to store our rds password in AWS parameter store [here](https://console.aws.amazon.com/systems-manager/parameters/?region=us-east-1&tab=Table) it is very important that we name the parameter `rds_password` exactly as is.
 
@@ -76,7 +76,7 @@ Once this step is completed. Simply run `./scripts/rds/launch-dev-rds.sh` and fo
 
 #### Launching the EKS Cluster 
 
-NOTE: adjust s3 bucket name in `us-east-1/environment/backend.tf` with value of your bucket.
+NOTE: adjust s3 bucket name in `us-east-1/eks/backend.tf` with value of your bucket.
 
 Our EKS cluster will also have similar behavior to RDS with the exception of the K8s API being publicly accessible due to lack of VPN. The resources will still live in private subnets and the cluster is managed through AWS auth. To launch please execute `./scripts/dev/launch-dev-eks.sh` and follow the prompts.
 
